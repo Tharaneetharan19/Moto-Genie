@@ -10,10 +10,8 @@ genai_api_key = os.getenv("GENAI_API_KEY")
 genai.configure(api_key=genai_api_key)
 
 # Load datasets
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-cars_df = pd.read_csv(os.path.join(BASE_DIR, "data/cars_dataset.csv"))
-bikes_df = pd.read_csv(os.path.join(BASE_DIR, "data/bike_dataset.csv"))
+cars_df = pd.read_csv("data/cars_dataset.csv")
+bikes_df = pd.read_csv("data/bike_data.csv")
 
 # Function to generate response using GenAI
 def generate_response(prompt):
