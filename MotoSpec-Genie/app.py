@@ -10,8 +10,8 @@ genai_api_key = 'AIzaSyCXUD9xY8Vh2OlXQ19FpSkedo3TkSku3MU'  # Replace with your a
 genai.configure(api_key=genai_api_key)
 
 # Load datasets
-cars_df = pd.read_csv("cars-dataset.csv")  # Adjust to your dataset location
-bikes_df = pd.read_csv("bike_data.csv")  # Adjust to your dataset location
+cars_df = pd.read_csv("data/cars-dataset.csv")  # Adjust to your dataset location
+bikes_df = pd.read_csv("data/bike_data.csv")  # Adjust to your dataset location
 
 # Function to generate response using GenAI
 def generate_response(prompt):
@@ -182,8 +182,6 @@ def calculate_fuel_cost():
         fuel_price = float(request.form.get("fuel_price"))
         fuel_cost = (distance / fuel_efficiency) * fuel_price
     return render_template("fuel_cost.html", fuel_cost=fuel_cost)
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
