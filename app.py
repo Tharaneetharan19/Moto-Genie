@@ -9,9 +9,14 @@ app = Flask(__name__)
 genai_api_key = os.getenv("GENAI_API_KEY")
 genai.configure(api_key=genai_api_key)
 
-# Load datasets
-cars_df = pd.read_csv("data/cars_dataset.csv")
-bikes_df = pd.read_csv("data/bike_data.csv")
+# Get the absolute path to the data directory
+base_dir = os.path.abspath(os.path.dirname(__file__))
+cars_data_path = os.path.join(base_dir, "data", "cars_dataset.csv")
+bikes_data_path = os.path.join(base_dir, "data", "bike_data.csv")
+
+# Load the data
+cars_df = pd.read_csv(cars_data_path)
+bikes_df = pd.read_csv(bikes_data_path)
 
 # Function to generate response using GenAI
 def generate_response(prompt):
